@@ -2,11 +2,12 @@ package me.rw_craft.skypebot;
 
 import com.samczsun.skype4j.user.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GlobalAdmin {
 
-    private static List<User> admins;
+    private static List<User> admins = new ArrayList<User>();
 
     public boolean isAdmin(User u) {
         if(admins.contains(u)) return true;

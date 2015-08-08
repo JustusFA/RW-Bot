@@ -6,6 +6,7 @@ import com.samczsun.skype4j.events.EventHandler;
 import com.samczsun.skype4j.events.Listener;
 import com.samczsun.skype4j.events.chat.message.MessageReceivedEvent;
 import com.samczsun.skype4j.exceptions.SkypeException;
+import me.rw_craft.skypebot.commands.Admin;
 import me.rw_craft.skypebot.commands.Help;
 import me.rw_craft.skypebot.commands.Stop;
 
@@ -18,6 +19,7 @@ public class Commands {
     private List<Command> commands = new ArrayList<Command>();
 
     public void register(final Skype skype) throws SkypeException {
+        commands.add(new Admin());
         commands.add(new Help());
         commands.add(new Stop());
         skype.getEventDispatcher().registerListener(new Listener() {

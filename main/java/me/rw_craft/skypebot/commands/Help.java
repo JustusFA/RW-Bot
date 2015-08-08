@@ -14,7 +14,7 @@ public class Help extends Command {
 
     public void execute(Skype skype, ChatMessage msg) {
         try {
-            msg.getChat().sendMessage(new MessageBuilder().create("My commands are:\n,help"));
+            msg.getChat().sendMessage(new MessageBuilder().create("My commands are:\n,admin\n,help"));
         } catch(SkypeException e) {
             System.err.println(e.getMessage());
         }

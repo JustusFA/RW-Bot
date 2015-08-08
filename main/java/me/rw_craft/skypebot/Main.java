@@ -9,7 +9,9 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            new Commands().register(Skype.login("rw00000", new TopLineReader(new File("C:/Users/Ryan/Desktop/Password.txt")).read()));
+            Skype skype = Skype.login("rw00000", new TopLineReader(new File("C:/Users/Ryan/Desktop/Password.txt")).read());
+            new GlobalAdmin().addAdmin(skype.getChat("8:rw_craft").getUser("rw_craft"));
+            new Commands().register(skype);
         } catch(SkypeException e) {
             System.err.println(e.getMessage());
         }

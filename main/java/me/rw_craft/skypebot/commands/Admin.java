@@ -7,12 +7,10 @@ import me.rw_craft.skypebot.Command;
 import me.rw_craft.skypebot.GlobalAdmin;
 import me.rw_craft.skypebot.MessageBuilder;
 
-import java.io.IOException;
-
-public class Stop extends Command {
+public class Admin extends Command {
 
     public String getName() {
-        return "admin stop";
+        return "admin";
     }
 
     public void execute(Skype skype, ChatMessage msg) {
@@ -24,12 +22,10 @@ public class Stop extends Command {
             }
             return;
         }
-        System.out.println("Stopping...");
         try {
-            skype.logout();
-        } catch(IOException e) {
+            msg.getChat().sendMessage(new MessageBuilder().create("My admin commands are:\n,admin stop"));
+        } catch(SkypeException e) {
             System.err.println(e.getMessage());
         }
-        System.exit(0);
     }
 }
